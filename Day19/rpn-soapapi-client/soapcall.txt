@@ -1,0 +1,10 @@
+curl -X POST http://localhost:8080/rpn-soap-api/services/RPNCalculator?wsdl   -H 'Content-Type: text/xml'   -H 'SOAPAction: rpn:evaluate'   -d '
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpn="http://amdocs.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <rpn:evaluate>
+         <rpn:rpnMathExpression>10 15 +</rpn:rpnMathExpression>
+      </rpn:evaluate>
+   </soapenv:Body>
+</soapenv:Envelope>'
+

@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rpn="http://amdocs.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <rpn:evaluate>
+         <rpn:rpnMathExpression>10 15 +</rpn:rpnMathExpression>
+      </rpn:evaluate>
+   </soapenv:Body>
+</soapenv:Envelope>'

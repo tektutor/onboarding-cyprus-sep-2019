@@ -1,0 +1,43 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.tektutor</groupId>
+	<artifactId>tektutor-rpnsoap-api</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>axistools-maven-plugin</artifactId>
+				<version>1.4</version>
+				<configuration>
+					<urls>
+						<url>http://localhost:8080/tektutor-rpnsoap-api/services/RPNCalculator</url>
+					</urls>
+					<packageSpace>org.tektutor</packageSpace>
+					<testCases>false</testCases>
+					<serverSide>true</serverSide>
+					<subPackageByFileName>true</subPackageByFileName>
+					<filename>Calculator</filename>
+				</configuration>
+				<executions>
+				   <execution>
+					<goals>
+						<goal>java2wsdl</goal>
+					</goals>
+				   </execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<webXml>web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
