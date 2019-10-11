@@ -1,0 +1,42 @@
+Depot
+	- Version controlled folder ( equivalent to git repository )
+
+Stream
+	- Branch with restricts in change propagation
+
+Legacy Branch
+	- Regular branch with no restriction in change propagation
+
+Workspace
+	- Local Folder where all code changes are performed
+
+Checkout
+	- The user must checkout a file before modifying the same so that Perforce
+	  will track the changes.
+
+Submit
+	- a.k.a Checkin. This is equivalent git commit.  You are basically
+	submitting your changes to version control ( Perforce ).
+
+Perforce Stream
+	- are nothing but branches with some rules for change propagation
+	- Perforce supports 5 types of streams
+			1. mainline
+			2. development
+			3. release
+			4. virtual 
+			5. task ( Private branch typically used for bug fixes or new features )
+	- mainline stream rules for change propagation
+		- Merge down and Copy up
+		- Changes can be taken from mainline to  development, however merge is required. In certain cases, manual conflict resolutions is required.
+		- Once the merge conflicts are resolved in development stream, changes
+		  can be moved to mainline without any need for merging
+
+	- development stream rules for change propagation
+		- Changes are allowed to come from mainline to development stream but
+		  merge is required
+		- Changes can be pushed to mainline without any need for Merge
+
+	- release stream rules for change propagtion
+		- Changes are not allowed from mainline to release stream
+		- However changes can be merged from release  to mainline(parent)
