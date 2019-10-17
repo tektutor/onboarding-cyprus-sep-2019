@@ -1,10 +1,46 @@
 import React from 'react';
-  
+//import Redux from 'redux';
+import {createStore} from 'redux'
+
 class App extends React.Component {
 
   constructor(props) {
     super(props);
+    this.extractLoanFormValues = this.extractLoanFormValues.bind(this);
     this.onClickSubmitButton = this.onClickSubmitButton.bind(this);
+    this.processLoan = this.processLoan.bind(this);
+    this.updateLoanStatusInGUI = this.updateLoanStatusInGUI.bind(this);
+
+    this.store = createStore(this.processLoan);
+    this.updateLoanStatusInGUI();
+    this.store.subscribe( this.updateLoanStatusInGUI );
+  }
+
+  updateLoanStatusInGUI() {
+    alert ( "Your loan application status is " + this.store.getState() );
+  }
+
+  processLoan() {
+    let status;
+
+    if ( this.loanStatus === "undefined" ) {
+      status = "AWAITING_LOAN_APPLICATION";
+    }
+    else if ( this.loanStatus === "LOAN_APPLICATION_SUBMITTED") {
+      switch ( Math.round( Math.random() * 1 ) ) {
+          case 0:
+            status = "LOAN_REQUEST_APPROVED";
+            break;
+          case 1:
+            status = "LOAN_REQUEST_REJECTED";
+            break;
+          default:
+            status = "LOAN_APPLICATION_INCOMPLETE";
+      }
+    }
+
+    return status;
+
   }
 
   extractLoanFormValues() {
@@ -13,9 +49,11 @@ class App extends React.Component {
     this.loanAmount = document.getElementById("loanAmount").value;
     this.loanDuration = document.getElementById("loanDuration").value;
     this.contactNumber = document.getElementById("contactNumber").value;
-    this.loanStatus = document.getElementById("loanStatus");
     //Test if the values entered in the react ui control is retrieved correctly
     console.log ( this.loanApplicantName );
+    this.loanStatus = "LOAN_APPLICATION_SUBMITTED";
+    this.store.dispatch({ type: 'LOAN_APPLICATION_SUBMITTED' })
+
   }
 
   onClickSubmitButton() {
@@ -30,7 +68,7 @@ class App extends React.Component {
 
           <h3>Loan App</h3>
           <table>
-            <tbody>
+            <tbody id="tableBody">
             <tr>
               <td>Loan applicant fullname</td>
               <td><input type="text" id="loanApplicantName"></input></td>
@@ -52,7 +90,7 @@ class App extends React.Component {
               <td><input type="number" id="loanDuration" min="1" max="5"></input></td>
             </tr> 
             <tr>
-              <td><label id="loanStatus"></label></td>
+              <td><input type="text" id="loanStatus"></input></td>
             </tr> 
             </tbody>
           </table>
