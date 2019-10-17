@@ -1,0 +1,70 @@
+
+body {
+    width: 90%;
+    padding: 50px;
+}
+
+.para1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+    text-align: left;
+    background-color: cornsilk;
+    color: black;
+
+    border: 2px solid #0000FF; 
+}
+
+.para2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    text-align: justify;
+    background-color: cornsilk;
+    color: black;
+    border: 5px dotted teal;
+}
+
+.para3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12pt;
+    text-align: right;
+    background-color: cornsilk;
+    color: black;
+    border: 8px dashed deepskyblue;
+}
+
+.para1, .para2, .para3 {
+    border-radius: 20px;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30pt;
+    color: #0000FF;
+    text-align: center;
+}
+
+.header {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15pt;
+    font-weight: 700;
+    background-color: darkslategray;
+    height: 50px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: red;
+}
+
+
+.footer {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}

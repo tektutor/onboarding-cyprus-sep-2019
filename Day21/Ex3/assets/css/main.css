@@ -1,0 +1,49 @@
+table {
+    width: 100%;
+}
+
+table th {
+    background-color: tomato;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+table tr:nth-child(odd) {
+    background-color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: black;
+}
+
+table td {
+    text-align: center;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.contact {
+    width: 50%;
+    align-self: center;
+}
+
+#button {
+    width: "25px";
+}
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
